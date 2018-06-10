@@ -1,0 +1,61 @@
+
+<div class='container'>
+  <div class='form1'>
+    <form #rgform="ngForm" (ngSubmit)="register(rgform)">
+      <div class='form-header'>
+        <h2>Register To SreePooja</h2>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-user"></i>
+        </span>
+        <input id="name" type="text"  required class="form-control" name="username" placeholder="Name" ngModel>
+        <div style="color: red;font-size:16px;" *ngIf="onformclick && !rgform.form.controls.username.valid">
+          this is a required field
+        </div>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-envelope"></i>
+        </span>
+        <input id="email" type="text" required class="form-control" name="email" placeholder="Email" ngModel>
+        <div style="color: red;font-size:16px;" *ngIf="onformclick && !rgform.form.controls.email.valid">
+          this is a required field
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-lock"></i>
+        </span>
+        <input id="password" type="password" required class="form-control" name="password" placeholder="Password" ngModel>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-lock"></i>
+        </span>
+        <input id="rePassword" type="password"  required class="form-control" name="rePassword" placeholder="Confirm Password" ngModel>
+     </div>
+     <div style="color: red;font-size:16px;" *ngIf="onformclick && pwdcheck">
+     Your both passwords should match
+    </div>
+   
+      <div class="input-group">
+        <button class='btn btn-warning'  type="submit">Register</button>
+      </div>
+      <div  style="color:green;font-size:16px;" *ngIf="onformclick && !pwdcheck">
+       Registered successfully
+      </div>
+      <div class='footers'>
+        <div>
+          <h5>
+            Already registered?
+            <a href='#'>login here.. </a>
+          </h5>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
